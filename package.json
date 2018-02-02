@@ -11,7 +11,8 @@
     "lint": "eslint app",
     "test:watch": "nodemon --exec 'npm run test' tests",
     "coverage": "NODE_ENV=test babel-node ./node_modules/.bin/isparta cover _mocha -- --recursive --reporter spec --compilers js:babel-register tests",
-    "validate": "npm run test && npm outdated --depth 0"
+    "validate": "npm run test && npm outdated --depth 0",
+    "apidocs": "apidoc -i ./app/ -o ./apidocs/",
   },
   "engines": {
     "node": ">= 6",
