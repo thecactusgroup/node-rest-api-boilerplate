@@ -36,6 +36,9 @@ app.use(methodOverride());
 // Mount public routes
 app.use('/public', express.static(`${__dirname}/public`));
 
+// Api Docs
+routes.use('/apidoc', express.static('apidoc'));
+
 // Mount API routes
 app.use(Constants.apiPrefix, routes);
 

@@ -62,8 +62,10 @@ const environmentConfigs = {
   },
   production: {
     mongo: {
-      seed: false,
-      uri: process.env.MONGO_URI,
+      uri: process.env.MONGO_URI || 'mongodb://localhost/development'
+    },
+    security: {
+      saltRounds: 4
     },
   },
 };

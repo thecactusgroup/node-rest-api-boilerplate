@@ -17,6 +17,22 @@ routes.get('/', MetaController.index);
 routes.post('/auth/login', AuthController.login);
 
 // Users
+/**
+ * @api {put} /tasks/:id Update a task
+ * @apiGroup Tasks
+ * @apiParam {id} id Task id
+ * @apiParam {String} title Task title
+ * @apiParam {Boolean} done Task is done?
+ * @apiParamExample {json} Input
+ *    {
+ *      "title": "Work",
+ *      "done": true
+ *    }
+ * @apiSuccessExample {json} Success
+ *    HTTP/1.1 204 No Content
+ * @apiErrorExample {json} Update error
+ *    HTTP/1.1 500 Internal Server Error
+ */
 routes.get('/users', UsersController.search);
 routes.post('/users', UsersController.create);
 routes.get('/users/me', authenticate, UsersController.fetch);
