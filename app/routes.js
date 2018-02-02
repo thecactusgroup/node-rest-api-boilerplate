@@ -16,24 +16,62 @@ routes.get('/', MetaController.index);
 // Authentication
 routes.post('/auth/login', AuthController.login);
 
+
+firstname: String,
+  lastname: String,
+  username: {
+    type: String,
+    unique: true,
+    required: [true, 'Username is required.'],
+  },
+  email: {
+    type: String,
+    unique: true,
+    lowercase: true,
+    required: [true, 'Email is required'],
+    validate: {
+      validator(email) {
+        // eslint-disable-next-line max-len
+        const emailRegex = /^[-a-z0-9%S_+]+(\.[-a-z0-9%S_+]+)*@(?:[a-z0-9-]{1,63}\.){1,125}[a-z]{2,63}$/i;
+        return emailRegex.test(email);
+      },
+      message: '{VALUE} is not a valid email.',
+    },
+  },
+  password: {
+    type: String,
+    required: [true, 'Password is required.'],
+  },
+  role: {
+    type: String,
+    default: 'user',
+  },
+
 // Users
 /**
- * @api {put} /tasks/:id Update a task
- * @apiGroup Tasks
- * @apiParam {id} id Task id
- * @apiParam {String} title Task title
- * @apiParam {Boolean} done Task is done?
+ * @api {get} /users/ Get users
+ * @apiGroup Users
+ * @apiParam {String} firstname User firstname
+ * @apiParam {String} lastname User lastname
+ * @apiParam {String} username User username
+ * @apiParam {String} email User email
+ * @apiParam {String} role User role
  * @apiParamExample {json} Input
  *    {
- *      "title": "Work",
- *      "done": true
+ *      "firstname": "Jonh",
+ *      "lastname": "Doe"
  *    }
  * @apiSuccessExample {json} Success
- *    HTTP/1.1 204 No Content
+ *    HTTP/1.1 204 { success:"true", {
+ *      "firstname": "Jonh",
+ *      "lastname": "Doe"
+ *    }}
  * @apiErrorExample {json} Update error
  *    HTTP/1.1 500 Internal Server Error
  */
 routes.get('/users', UsersController.search);
+
+
 routes.post('/users', UsersController.create);
 routes.get('/users/me', authenticate, UsersController.fetch);
 routes.put('/users/me', authenticate, UsersController.update);
