@@ -32,13 +32,13 @@ routes.post('/auth/login', AuthController.login);
  *    }
  * @apiSuccessExample {json} Success
  *    HTTP/1.1 204 
- *	  { 
- *		success:"true", 
- *		{
- *			"firstname": "Jonh",
- *			"lastname": "Doe"
- *		}
- *	  }
+ *    {
+ *      "success":"true", 
+ *      {
+ *         "firstname": "Jonh",
+ *         "lastname": "Doe"
+ *      }
+ *    }
  * @apiErrorExample {json} Update error
  *    HTTP/1.1 500 Internal Server Error
  */
