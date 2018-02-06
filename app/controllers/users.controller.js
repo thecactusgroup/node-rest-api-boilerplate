@@ -30,7 +30,7 @@ class UsersController extends BaseController {
     }
   }
 
-  search = async (req, res, next) => {
+  findAll = async (req, res, next) => {
     try {
       // @TODO Add pagination
       res.json(await User.find());

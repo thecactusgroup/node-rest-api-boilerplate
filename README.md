@@ -9,21 +9,21 @@
 - [x] Test coverage via [Isparta](https://github.com/douglasduteil/isparta)
 - [x] Username/Email registration and authentication
 
-## Getting Started
-First, ensure you have node and mongo installed on your system.
+## Pasos a seguir
 
 ```sh
-# clone it
-git clone git@github.com:kylealwyn/node-rest-api-boilerplate.git
+# Clonar el proyecto
+git clone https://github.com/thecactusgroup/node-rest-api-boilerplate.git
 cd node-rest-api-boilerplate
 
-# Make it your own
-rm -rf .git && git init
-
-# Install dependencies
+# Instalar las dependencias
 npm install
 
-# Run it
+# Asegurate de tener instalado MongoDB, para correr la base localmente.
+[MongoDB](https://www.mongodb.com/)
+Una vez instalado, abrir una nueva terminal y ejecutar mongod
+
+# Correr la API
 npm start
 
 # Try it!
@@ -48,11 +48,3 @@ Now we can access one of these variables with something like `process.env.MONGO_
 - **`npm run test:watch`** - Run test suite with auto-reloading
 - **`npm run coverage`** - Generate test coverage
 - **`npm run build`** - Generate production ready application in `./build`
-
-## Todo
-- [ ] Add OAuth Login Support (Facebook, Twitter, Google)
-- [ ] Add support for MySql or PostgreSQL (Possibly with sequelize)
-- [ ] Reset password functionality
-
-## License
-MIT
